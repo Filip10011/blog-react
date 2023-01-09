@@ -4,6 +4,7 @@
   margin: 2.5rem auto 4rem auto;
   padding: 0.5rem;
   border-radius: 5px;
+  box-shadow: 6px 3px 3px black;
 }
 
 .searchBar form {
