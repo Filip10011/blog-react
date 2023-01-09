@@ -1,5 +1,7 @@
-import Home from "./pages/Home/Home";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+import Home from "./pages/Home/Home";
+import Blog from "./pages/Blog/Blog";
 
 function App() {
   return (
@@ -7,6 +9,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/blog/:id" element={<Blog />} />
         </Routes>
       </BrowserRouter>
     </div>
