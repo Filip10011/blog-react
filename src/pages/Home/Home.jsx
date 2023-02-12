@@ -9,35 +9,32 @@ import EmptyList from "../../components/EmptyList/EmptyList";
 
 const Home = () => {
   const [blogs, setBlogs] = useState(allBlogs);
-
   const [searchTerm, setSearchTerm] = useState("");
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+
+    const filteredBlogs = allBlogs?.filter((blog) =>
+      blog.category.toLowerCase().includes(searchTerm.toLowerCase().trim())
+    );
+    setBlogs(filteredBlogs);
+  };
+
+  const onChange = (e) => setSearchTerm(e.target.value);
 
   const clearSearch = () => {
     setSearchTerm("");
     setBlogs(allBlogs);
   };
 
-  const onSubmit = (e) => {
-    e.preventDefault();
-    const filteredBlogs = allBlogs?.filter((blog) =>
-      blog.category.toLowerCase().includes(searchTerm.toLowerCase().trim())
-    );
-
-    console.log(filteredBlogs);
-  };
-
-  const onChange = (e) => {
-    setSearchTerm(e.target.value);
-  };
-
   return (
     <>
       <Header />
       <SearchBar
-        onChange={onChange}
         onSubmit={onSubmit}
-        value={searchTerm}
+        onChange={onChange}
         clearSearch={clearSearch}
+        value={searchTerm}
       />
       {blogs.length ? <Blogs blogs={blogs} /> : <EmptyList />}
     </>

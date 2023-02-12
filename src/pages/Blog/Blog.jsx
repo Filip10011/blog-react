@@ -10,7 +10,7 @@ const Blog = () => {
   const [blog, setBlog] = useState(null);
 
   useEffect(() => {
-    const blog = allBlogs.find((blog) => (blog.id = parseInt(id)));
+    const blog = allBlogs.find((blog) => blog.id === parseInt(id));
     if (blog) {
       setBlog(blog);
     }
@@ -19,7 +19,7 @@ const Blog = () => {
   return (
     <>
       <Link className="blog-goBack" to="/">
-        <span>&#8592;</span> <span>Go Back</span>
+        <span> &#8592;</span> <span>Go Back</span>
       </Link>
       {blog ? (
         <div className="blog-wrap">

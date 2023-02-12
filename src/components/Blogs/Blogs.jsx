@@ -3,14 +3,22 @@ import { allBlogs } from "../../config/blogs";
 import "../Blogs/Blogs.css";
 import BlogItem from "./BlogItem/BlogItem";
 
-const Blogs = () => {
+const Blogs = ({ blogs }) => {
   return (
     <div className="blogs-wrapper">
-      <div>
-        {allBlogs.map((blog) => (
-          <BlogItem key={blog.id} blog={blog} />
-        ))}
-      </div>
+      {blogs?.map((blog) => (
+        <BlogItem
+          key={blog.id}
+          category={blog.category}
+          title={blog.title}
+          createdAt={blog.createdAt}
+          authorAvatar={blog.authorAvatar}
+          authorName={blog.authorName}
+          id={blog.id}
+          cover={blog.cover}
+          description={blog.description}
+        />
+      ))}
     </div>
   );
 };
