@@ -7,8 +7,13 @@ export const MainContext = createContext(initialState);
 export const Provider = ({ children }) => {
   const [theme, setTheme] = useState("dark");
 
+  const toggleTheme = () => {
+    const newTheme = theme === "dark" ? "light" : "dark";
+    setTheme(newTheme);
+  };
+
   return (
-    <MainContext.Provider value={{ blogs: allBlogs, theme }}>
+    <MainContext.Provider value={{ blogs: allBlogs, theme, toggleTheme }}>
       {children}
     </MainContext.Provider>
   );
