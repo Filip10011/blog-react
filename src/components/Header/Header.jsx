@@ -1,7 +1,11 @@
 import "./Header.css";
+import { BsSun } from "react-icons/bs";
 const Header = () => {
   return (
     <div className="header">
+      <p className="toggle-theme">
+        <BsSun />
+      </p>
       <h2>Inc. This Morning</h2>
       <h1>My random blog</h1>
       <p>
